@@ -45,7 +45,7 @@
   <script src="js/index.js"></script>
 </body>
 <script>
-  //register the service worker
+  //register the service worker with navigator object
   (function() {
     if("serviceWorker" in navigator) {
       navigator.serviceWorker.register("./service-worker.js")
