@@ -11,7 +11,7 @@ request.onsucess = function(event){// finalize the connection to the data
     db = event.target.result;
 
     if(navigator.onLine){// check if have internet now, if have internet then update the offline information to the origin database
-        updateBudget();// update information function
+        uploadBudget();// update information function
     }
 }
 
@@ -29,7 +29,7 @@ function saveRecord(record){
 }
 
 //update information
-function updateBudget(){
+function uploadBudget(){
     const transaction = db.transaction(["newBudget"], "readwrite");
 
     const store = transaction.objectStore("newBudget");
@@ -40,7 +40,7 @@ function updateBudget(){
 // will execute after step1 complte.
 getAll.onsuccess = function(){
     if (getAll.result.length > 0) {
-        fetch('api/transaction', {
+        fetch('api/transaction/', {
           method: 'POST',
           body: JSON.stringify(getAll.result),
           headers: {
@@ -69,4 +69,4 @@ getAll.onsuccess = function(){
 }
 
 //if browser comes back online, will execute the updatebudget function
-    window.addEventListener("online", updateBudget);
+    window.addEventListener("online", uploadBudget);
