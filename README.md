@@ -15,5 +15,6 @@ THEN the deposits or expenses added while they were offline are added to their t
 ## Heroku Deployed
 This application is deployed to Heroku with using MongoDB Atlas. <br/>
 [Heroku Deployed Link](https://budget-tracker-offline-use.herokuapp.com/)
+<img src="img/heroku_img.png"><br/>
 
 
