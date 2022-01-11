@@ -18,8 +18,8 @@ const FILES_TO_CACHE = [
     "./css/styles.css"
 ]
 //install
-self.addEventListener('install',function(event){
-    event.waitUntil(
+self.addEventListener('install',function(e){
+    e.waitUntil(
         caches.open(VERSION).then(function(cache){
             return cache.addAll(FILES_TO_CACHE)
         })
@@ -27,8 +27,8 @@ self.addEventListener('install',function(event){
 })
 
 // activation, clear out andy old data from the cache
-self.addEventListener("activate", function (event) {
-    event.waitUntil(
+self.addEventListener("activate", function (e) {
+    e.waitUntil(
       caches.keys().then(function (keyList) {
         let cacheKeeplist = keyList.filter(function (key) {
           return key.indexOf(APP_PREFIX);
@@ -48,16 +48,16 @@ self.addEventListener("activate", function (event) {
   });
 
   //intercept fetch request, retrieve information from the cache
-  self.addEventListener('fetch', function (event) {
-    console.log('fetch request : ' + event.request.url)
-    event.respondWith(
+  self.addEventListener('fetch', function (e) {
+    console.log('fetch request : ' + e.request.url);
+    e.respondWith(
       caches.match(e.request).then(function (request) {// match to determine if the resource already existg in cache
         if (request) { // if match the exists in caches will log url or allow the resource to beb retrieved
-          console.log('responding with cache : ' + event.request.url)
+          console.log('responding with cache : ' + e.request.url);
           return request
         } else {       
-          console.log('file is not cached, fetching : ' + event.request.url)
-          return fetch(e.request)
+          console.log('file is not cached, fetching : ' + e.request.url);
+          return fetch(e.request);
         }
       })
     )
