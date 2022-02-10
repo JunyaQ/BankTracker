@@ -1,4 +1,4 @@
-# Bootcamp_challenge19_BankTracker
+# BankTracker
 ## Bank Tracker Application
 This application can store the deposit transaction and spend/withdraw transaction. <br/>
 This application can use for both with or without internet connect. When the internet is offline, the application will use IndexDB, Service workers, 
