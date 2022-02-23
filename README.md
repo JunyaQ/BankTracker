@@ -12,9 +12,18 @@ THEN they will receive a notification that they have added an expense or deposit
 WHEN the user reestablishes an internet connection<br/>
 THEN the deposits or expenses added while they were offline are added to their transaction history and their totals are updated<br/>
 
+## Technologies use
+- HTML
+- CSS
+- Javascript
+- Node js
+- Express js
+- MongoDB
+
+
 ## Heroku Deployed
 This application is deployed to Heroku with using MongoDB Atlas. <br/>
-[Heroku Deployed Link](https://budget-tracker-offline-use.herokuapp.com/)
+Deployed link : https://budget-tracker-offline-use.herokuapp.com/
 <img src="img/heroku_img.png"><br/>
 
 
